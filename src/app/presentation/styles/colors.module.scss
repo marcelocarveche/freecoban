@@ -1,29 +1,226 @@
-// Cores básicas do projeto
-$primary: #007bff;
-$secondary: #6c757d;
-$success: #28a745;
-$danger: #dc3545;
-$warning: #ffc107;
-$info: #17a2b8;
+// ============================================================================
+// PALETA DE CORES - FREECOBAN
+// ============================================================================
 
-// Neutros
-$white: #ffffff;
-$offWhite: #f9f6f2;
-$greyLight: #e2e2e2;
-$grey: #6c757d;
-$dark: #343a40;
+// Cores Primárias (Verde Esmeralda) - Uso: Botões principais, CTAs, destaque
+$emerald-900: #003d2b; // Textos em fundos claros, ícones
+$emerald-800: #004d33; // Bordas, elementos secundários
+$emerald-700: #005a3a; // Hover de botões primários
+$emerald-600: #006441; // COR PRINCIPAL - Botões, links, marca
+$emerald-500: #007a4f; // Elementos ativos, seleções
+$emerald-400: #00995e; // Estados focus, anéis de foco
+$emerald-300: #26b56e; // Elementos hover claros
+$emerald-200: #66d199; // Backgrounds sutis, badges
+$emerald-100: #99e6bb; // Fundos de cards, áreas destacadas
+$emerald-50: #e6f7ed; // Fundos muito sutis, containers
 
-// Exportando para JavaScript
+// Cores Secundárias (Verde Oliva) - Uso: Botões secundários, navegação
+$olive-900: #3d4428; // Textos escuros, títulos
+$olive-800: #4a5030; // Subtítulos, textos importantes
+$olive-700: #556037; // Hover de botões secundários
+$olive-600: #667f48; // COR SECUNDÁRIA - Navegação, menus
+$olive-500: #7a9955; // Links secundários, elementos ativos
+$olive-400: #8fb365; // Estados intermediários
+$olive-300: #a6cc77; // Elementos hover, bordas suaves
+$olive-200: #c2e091; // Backgrounds de notificações
+$olive-100: #d9f0ab; // Fundos de seções secundárias
+$olive-50: #f0f8e6; // Fundos muito sutis, containers light
+
+// Cores Neutras (Sage) - Uso: Fundos, bordas, elementos neutros
+$sage-900: #6b7559; // Textos neutros escuros
+$sage-800: #7a8666; // Bordas médias, separadores
+$sage-700: #889773; // Textos secundários
+$sage-600: #96a880; // Elementos desabilitados
+$sage-500: #a6b595; // COR NEUTRA - Bordas, divisores
+$sage-400: #b5c4a5; // Bordas claras, hover sutil
+$sage-300: #c4d2b5; // Fundos de inputs, forms
+$sage-200: #d3e0c5; // Bordas muito claras
+$sage-100: #e2eed5; // Fundos de cards neutros
+$sage-50: #f1f7e5; // Fundos de página, containers
+
+// Cores Beige/Neutras Quentes - Uso: Fundos quentes, cards, conteúdo
+$beige-900: #8a7960; // Textos em fundos beige claros
+$beige-800: #9d8b6f; // Bordas em contextos quentes
+$beige-700: #b09d7e; // Elementos hover em temas quentes
+$beige-600: #c3b08d; // Divisores, separadores suaves
+$beige-500: #d2c1aa; // COR BEIGE - Fundos de conteúdo
+$beige-400: #dbcab7; // Fundos de seções, sidebars
+$beige-300: #e4d4c4; // Cards, modais, overlays
+$beige-200: #edddd1; // Fundos muito suaves
+$beige-100: #f6e6de; // Backgrounds de página alternativos
+$beige-50: #faf3ed; // Fundos principais, body
+
+// Cores Escuras (Cinza/Preto) - Uso: Textos, elementos escuros, headers
+$gray-900: #1a1b18; // Textos principais, títulos importantes
+$gray-800: #2a2b27; // Textos secundários, subtítulos
+$gray-700: #383b35; // COR ESCURA - Headers, footers, textos
+$gray-600: #4a4d47; // Textos terciários, placeholders
+$gray-500: #5c5f59; // Textos desabilitados, ícones inativos
+$gray-400: #6e726b; // Bordas médias, separadores
+$gray-300: #8a8e85; // Bordas claras, elementos desabilitados
+$gray-200: #a6aa9f; // Fundos de elementos desabilitados
+$gray-100: #c2c6b9; // Fundos muito claros, skeletons
+$gray-50: #dee2d3; // Fundos alternativos, loading states
+
+// Cores Base - Uso: Contrastes máximos, textos sobre cores
+$white: #ffffff; // Fundos principais, textos sobre cores escuras
+$black: #000000; // Textos de máximo contraste
+
+// ============================================================================
+// ALIASES SEMÂNTICOS - Para uso direto em componentes
+// ============================================================================
+
+// Cores principais da marca
+$primary: $emerald-600; // Botões principais, CTAs, links importantes
+$primary-dark: $emerald-700; // Hover de botões primários
+$primary-light: $emerald-400; // Estados focus, elementos ativos
+$primary-contrast: $white; // Textos sobre cores primárias
+
+// Cores secundárias
+$secondary: $olive-600; // Navegação, menus, botões secundários
+$secondary-dark: $olive-700; // Hover de botões secundários
+$secondary-light: $olive-400; // Estados intermediários
+$secondary-contrast: $white; // Textos sobre cores secundárias
+
+// Cores de superfície
+$surface: $white; // Fundos de cards, modais, containers
+$surface-variant: $sage-50; // Fundos alternativos, seções
+$surface-container: $beige-50; // Fundos de containers, body
+$surface-dim: $gray-100; // Fundos de elementos desabilitados
+
+// Cores de texto
+$text-primary: $gray-700; // Textos principais, títulos
+$text-secondary: $gray-500; // Textos secundários, descrições
+$text-disabled: $gray-300; // Textos desabilitados, placeholders
+$text-on-primary: $white; // Textos sobre cores primárias
+$text-on-secondary: $white; // Textos sobre cores secundárias
+
+// Cores de borda
+$border-light: $sage-200; // Bordas sutis, divisores leves
+$border-medium: $sage-400; // Bordas padrão, inputs
+$border-dark: $gray-400; // Bordas de destaque, separadores
+
+// Estados de interação
+$hover-overlay: rgba(0, 100, 65, 0.08); // Overlay para hover
+$focus-ring: $emerald-400; // Anéis de foco, outline
+$disabled-bg: $gray-100; // Fundos de elementos desabilitados
+$disabled-text: $gray-300; // Textos de elementos desabilitados
+
+// Feedback colors - Para alertas, notificações, status
+$success: $emerald-500; // Sucesso, confirmações
+$success-light: $emerald-100; // Fundos de mensagens de sucesso
+$warning: #f59e0b; // Avisos, atenção
+$warning-light: #fef3c7; // Fundos de mensagens de aviso
+$error: #ef4444; // Erros, ações destrutivas
+$error-light: #fee2e2; // Fundos de mensagens de erro
+$info: $olive-500; // Informações, dicas
+$info-light: $olive-100; // Fundos de mensagens informativas
+
+// ============================================================================
+// EXPORTAÇÃO PARA JAVASCRIPT/REACT
+// ============================================================================
 :export {
-  primary: $primary;
-  secondary: $secondary;
-  success: $success;
-  danger: $danger;
-  warning: $warning;
-  info: $info;
+  // Paleta Emerald (Verde Principal)
+  emerald900: $emerald-900;
+  emerald800: $emerald-800;
+  emerald700: $emerald-700;
+  emerald600: $emerald-600;
+  emerald500: $emerald-500;
+  emerald400: $emerald-400;
+  emerald300: $emerald-300;
+  emerald200: $emerald-200;
+  emerald100: $emerald-100;
+  emerald50: $emerald-50;
+
+  // Paleta Olive (Verde Oliva)
+  olive900: $olive-900;
+  olive800: $olive-800;
+  olive700: $olive-700;
+  olive600: $olive-600;
+  olive500: $olive-500;
+  olive400: $olive-400;
+  olive300: $olive-300;
+  olive200: $olive-200;
+  olive100: $olive-100;
+  olive50: $olive-50;
+
+  // Paleta Sage (Neutros Verdes)
+  sage900: $sage-900;
+  sage800: $sage-800;
+  sage700: $sage-700;
+  sage600: $sage-600;
+  sage500: $sage-500;
+  sage400: $sage-400;
+  sage300: $sage-300;
+  sage200: $sage-200;
+  sage100: $sage-100;
+  sage50: $sage-50;
+
+  // Paleta Beige (Neutros Quentes)
+  beige900: $beige-900;
+  beige800: $beige-800;
+  beige700: $beige-700;
+  beige600: $beige-600;
+  beige500: $beige-500;
+  beige400: $beige-400;
+  beige300: $beige-300;
+  beige200: $beige-200;
+  beige100: $beige-100;
+  beige50: $beige-50;
+
+  // Paleta Gray (Cinzas)
+  gray900: $gray-900;
+  gray800: $gray-800;
+  gray700: $gray-700;
+  gray600: $gray-600;
+  gray500: $gray-500;
+  gray400: $gray-400;
+  gray300: $gray-300;
+  gray200: $gray-200;
+  gray100: $gray-100;
+  gray50: $gray-50;
+
+  // Cores base
   white: $white;
-  offWhite: $offWhite;
-  greyLight: $greyLight;
-  grey: $grey;
-  dark: $dark;
+  black: $black;
+
+  // Aliases semânticos
+  primary: $primary;
+  primaryDark: $primary-dark;
+  primaryLight: $primary-light;
+  primaryContrast: $primary-contrast;
+
+  secondary: $secondary;
+  secondaryDark: $secondary-dark;
+  secondaryLight: $secondary-light;
+  secondaryContrast: $secondary-contrast;
+
+  surface: $surface;
+  surfaceVariant: $surface-variant;
+  surfaceContainer: $surface-container;
+  surfaceDim: $surface-dim;
+
+  textPrimary: $text-primary;
+  textSecondary: $text-secondary;
+  textDisabled: $text-disabled;
+  textOnPrimary: $text-on-primary;
+  textOnSecondary: $text-on-secondary;
+
+  borderLight: $border-light;
+  borderMedium: $border-medium;
+  borderDark: $border-dark;
+
+  hoverOverlay: $hover-overlay;
+  focusRing: $focus-ring;
+  disabledBg: $disabled-bg;
+  disabledText: $disabled-text;
+
+  success: $success;
+  successLight: $success-light;
+  warning: $warning;
+  warningLight: $warning-light;
+  error: $error;
+  errorLight: $error-light;
+  info: $info;
+  infoLight: $info-light;
 }

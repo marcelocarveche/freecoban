@@ -1,5 +1,3 @@
-// Components
-// Adicione aqui as exportações dos seus componentes
-
-// Exemplo:
-// export * from './button/button'
+export * from './header/header'
+export { default as Section } from './section/section'
+export { default as HeroSection } from './hero-section/hero-section'

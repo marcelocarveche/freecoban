@@ -1,0 +1,141 @@
+@import '../../styles/colors.module.scss';
+
+.container {
+  background-color: $surface;
+  border-bottom: 1px solid $border-light;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  width: 100%;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  max-width: 1280px;
+  margin: 0 auto;
+
+  @media (max-width: 768px) {
+    padding: 0.75rem 1rem;
+  }
+}
+
+.logoContainer {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  transition: transform 0.2s ease;
+
+  &:hover {
+    transform: scale(1.02);
+  }
+}
+
+.logo {
+  height: 50px;
+  width: auto;
+
+  @media (max-width: 768px) {
+    height: 40px;
+  }
+}
+
+.navigation {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+
+  @media (max-width: 768px) {
+    gap: 1rem;
+  }
+}
+
+.navLink {
+  color: $text-primary;
+  text-decoration: none;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 1.25rem;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+  position: relative;
+
+  &:hover {
+    color: $primary;
+    background-color: $emerald-50;
+  }
+
+  &:focus {
+    outline: 2px solid $focus-ring;
+    outline-offset: 2px;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 1.125rem;
+    padding: 0.4rem 0.75rem;
+  }
+}
+
+.mobileMenu {
+  display: none;
+
+  @media (max-width: 640px) {
+    display: block;
+  }
+}
+
+.spacer {
+  display: none;
+}
+
+.mobileMenuButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 4px;
+  color: $text-primary;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background-color: $emerald-50;
+    color: $primary;
+  }
+
+  &:focus {
+    outline: 2px solid $focus-ring;
+    outline-offset: 2px;
+  }
+}
+
+.mobileNavigation {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  left: 0;
+  background-color: $surface;
+  border-top: 1px solid $border-light;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+
+  &.isOpen {
+    display: block;
+  }
+
+  .navLink {
+    display: block;
+    margin-bottom: 0.5rem;
+    text-align: center;
+  }
+}
+
+@media (max-width: 640px) {
+  .navigation {
+    display: none;
+  }
+}

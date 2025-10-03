@@ -1,3 +1,4 @@
+import { Header } from '@/app/presentation/components'
 import { createContext, useContext, ReactNode } from 'react'
 
 // Define o tipo do contexto
@@ -14,7 +15,12 @@ export const useGlobalProvider = (): GlobalContextType => {
 }
 
 const GlobalProvider = ({ children }: { children: ReactNode }) => {
-  return <GlobalContext.Provider value={{}}>{children}</GlobalContext.Provider>
+  return (
+    <GlobalContext.Provider value={{}}>
+      <Header />
+      {children}
+    </GlobalContext.Provider>
+  )
 }
 
 export default GlobalProvider
