@@ -1,0 +1,131 @@
+@import '../../styles/colors.module.scss';
+
+@keyframes bounceAnimation {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  10%,
+  30% {
+    transform: translateY(-10px);
+  }
+  20% {
+    transform: translateY(-20px);
+  }
+  40% {
+    transform: translateY(-5px);
+  }
+  50% {
+    transform: translateY(0);
+  }
+}
+
+.instagramButton {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem; // Posicionado no canto direito
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(
+    45deg,
+    #f09433 0%,
+    #e6683c 25%,
+    #dc2743 50%,
+    #cc2366 75%,
+    #bc1888 100%
+  );
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+  z-index: 1000;
+
+  &:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(
+      45deg,
+      #d87c2a 0%,
+      #c95a31 25%,
+      #b52038 50%,
+      #a51d56 75%,
+      #8e1572 100%
+    );
+  }
+
+  &:active {
+    transform: scale(1.05);
+  }
+
+  @media (max-width: 768px) {
+    width: 56px;
+    height: 56px;
+    bottom: 1.5rem;
+    right: 1.5rem;
+  }
+
+  @media (max-width: 480px) {
+    width: 52px;
+    height: 52px;
+    bottom: 1rem;
+    right: 1rem;
+  }
+}
+
+.bounce {
+  animation: bounceAnimation 1s ease-in-out;
+}
+
+.badge {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  background-color: #ff3b30; // Mesma cor vermelha do Instagram
+  color: white;
+  font-size: 12px;
+  font-weight: 700;
+  font-family:
+    -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  min-width: 20px;
+  height: 20px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  border: 2px solid white;
+  z-index: 1;
+  line-height: 1;
+
+  @media (max-width: 768px) {
+    font-size: 11px;
+    min-width: 18px;
+    height: 18px;
+    border-radius: 9px;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 10px;
+    min-width: 16px;
+    height: 16px;
+    border-radius: 8px;
+    top: -2px;
+    right: -2px;
+  }
+}
+
+.icon {
+  width: 32px;
+  height: 32px;
+  color: white;
+
+  @media (max-width: 768px) {
+    width: 28px;
+    height: 28px;
+  }
+}

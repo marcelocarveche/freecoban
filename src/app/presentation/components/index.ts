@@ -1,3 +1,8 @@
 export * from './header/header'
 export { default as Section } from './section/section'
 export { default as HeroSection } from './hero-section/hero-section'
+export { default as SectionContent } from './section-content/section-content'
+export { default as ImagePopup } from './image-popup/image-popup'
+export { default as WhatsAppButton } from './whatsapp-button/whatsapp-button'
+export { default as InstagramButton } from './instagram-button/instagram-button'
+export { default as ContactSection } from './contact-section/contact-section'

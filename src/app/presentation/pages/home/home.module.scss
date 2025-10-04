@@ -4,11 +4,19 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  scroll-behavior: smooth; // Scroll suave nativo
+
+  // Otimização de scroll para navegadores webkit (Chrome, Safari, Edge)
+  -webkit-overflow-scrolling: touch;
 }
 
 .section {
-  padding: 4rem 2rem;
+  padding: 3rem 2rem;
   width: 100%;
+  min-height: auto; // Altura automática baseada no conteúdo
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   &:nth-child(even) {
     background-color: $surface;
@@ -16,6 +24,10 @@
 
   &:nth-child(odd) {
     background-color: $surface-variant;
+  }
+
+  @media (max-width: 768px) {
+    padding: 2rem 2rem;
   }
 }
 

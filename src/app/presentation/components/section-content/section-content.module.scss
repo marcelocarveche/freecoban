@@ -1,0 +1,119 @@
+@import '../../styles/colors.module.scss';
+
+// ============================================================================
+// COMPONENTE SECTION CONTENT - CONTEÚDO DE SEÇÃO COM TEXTO E IMAGEM
+// ============================================================================
+
+.container {
+  display: flex;
+  gap: 3rem;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1200px;
+  padding: 3.4rem 2rem; // Reduzido 15% (4rem → 3.4rem)
+  margin: 0 auto;
+
+  // Quando a imagem deve ficar à esquerda
+  &.imageLeft {
+    flex-direction: row-reverse;
+  }
+
+  // Responsividade para tablet e mobile
+  @media (max-width: 768px) {
+    flex-direction: column !important;
+    gap: 2rem;
+    padding: 2.55rem 1.5rem; // Reduzido 15% (3rem → 2.55rem)
+  }
+}
+
+// ============================================================================
+// CONTEÚDO DE TEXTO
+// ============================================================================
+
+.textContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 600px;
+
+  @media (max-width: 768px) {
+    max-width: 100%;
+  }
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: $emerald-900;
+  margin: 0;
+
+  @media (max-width: 768px) {
+    font-size: 2rem;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 1.75rem;
+  }
+}
+
+.description {
+  font-size: 1.125rem;
+  line-height: 1.7;
+  color: $sage-900;
+  margin: 0;
+
+  @media (max-width: 768px) {
+    font-size: 1rem;
+  }
+}
+
+// ============================================================================
+// CONTEÚDO DE IMAGEM
+// ============================================================================
+
+.imageContent {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 600px;
+  height: 400px;
+  max-width: 600px;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 61, 43, 0.1);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 61, 43, 0.15);
+  }
+
+  &:active {
+    transform: translateY(-3px);
+  }
+
+  @media (max-width: 768px) {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    aspect-ratio: 3 / 2;
+    border-radius: 8px;
+  }
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  cursor: zoom-in;
+
+  @media (max-width: 768px) {
+    cursor: pointer;
+  }
+}
