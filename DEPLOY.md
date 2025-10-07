@@ -19,7 +19,6 @@ Se você quiser usar o domínio `freecoban.marcelocarveche.com.br`:
    - Adicione um registro **CNAME**:
      - Nome: `freecoban`
      - Valor: `marcelocarveche.github.io`
-   
 2. No GitHub, em **Settings > Pages > Custom domain**:
    - Digite: `freecoban.marcelocarveche.com.br`
    - Clique em **Save**
@@ -38,6 +37,7 @@ git push origin main
 ```
 
 O GitHub Actions irá:
+
 1. Fazer build do projeto automaticamente
 2. Publicar na branch `gh-pages`
 3. Disponibilizar o site em alguns minutos
