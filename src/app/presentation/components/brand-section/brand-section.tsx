@@ -2,6 +2,7 @@ import { useRef } from 'react'
 import styles from './brand-section.module.scss'
 import { useParallax } from '@/app/presentation/hooks/use-parallax'
 import { useIsMobile } from '@/app/presentation/hooks/use-is-mobile'
+import logo from '../../assets/logo.png'
 
 interface BrandSectionProps {
   backgroundImage: string
@@ -12,7 +13,7 @@ interface BrandSectionProps {
 
 const BrandSection = ({
   backgroundImage,
-  logoSrc = '/logo.png',
+  logoSrc = logo,
   slogan = 'O NOVO PADRÃO\nEM BANHEIROS VIP',
   parallaxSpeed = 0.375,
 }: BrandSectionProps) => {

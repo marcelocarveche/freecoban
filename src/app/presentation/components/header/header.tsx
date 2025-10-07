@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import styles from './header.module.scss'
+import logo from '../../assets/logo.png'
 
 type Props = {} & React.HTMLAttributes<HTMLDivElement>
 
@@ -37,7 +38,7 @@ export const Header: React.FC<Props> = ({ ...props }) => {
       <div className={styles.content}>
         {/* Logo */}
         <a href="/" className={styles.logoContainer}>
-          <img src="/logo.png" alt="FreeCoBan Logo" className={styles.logo} />
+          <img src={logo} alt="FreeCoBan Logo" className={styles.logo} />
         </a>
 
         {/* Navegação Desktop */}
