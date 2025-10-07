@@ -1,0 +1,104 @@
+@import '../../styles/colors.module.scss';
+
+// ============================================================================
+// COMPONENTE QUOTE SECTION - SEÇÃO DE CITAÇÃO COM SVGs
+// ============================================================================
+
+.container {
+  width: 100%;
+  background-color: #e8e3dc; // Cor bege similar à imagem
+  padding: 4rem 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 400px;
+
+  @media (max-width: 768px) {
+    padding: 3rem 1.5rem;
+    min-height: 300px;
+  }
+}
+
+.content {
+  max-width: 800px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+// ============================================================================
+// ÍCONES DE ASPAS
+// ============================================================================
+
+.quoteIconTop,
+.quoteIconBottom {
+  font-size: 6.25rem; // 5rem + 25% = 6.25rem (100px)
+  line-height: 0.8;
+  color: $emerald-600; // Verde principal do projeto
+  opacity: 0.8;
+  font-family: Georgia, serif;
+  font-weight: 700;
+  height: 80px; // Altura fixa para garantir consistência
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @media (max-width: 768px) {
+    font-size: 5rem; // 4rem + 25% = 5rem (80px)
+    height: 64px;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 3.75rem; // 3rem + 25% = 3.75rem (60px)
+    height: 48px;
+  }
+}
+
+.quoteIconTop {
+  margin-bottom: -10px; // Valor negativo para compensar a altura natural das aspas
+
+  @media (max-width: 768px) {
+    margin-bottom: -8px;
+  }
+
+  @media (max-width: 480px) {
+    margin-bottom: -6px;
+  }
+}
+
+.quoteIconBottom {
+  margin-top: 32px; // Espaçamento entre texto e aspas de baixo
+
+  @media (max-width: 768px) {
+    margin-top: 24px;
+  }
+
+  @media (max-width: 480px) {
+    margin-top: 16px;
+  }
+}
+
+// ============================================================================
+// TEXTO DA CITAÇÃO
+// ============================================================================
+
+.quote {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2.5rem; // 2rem + 25% = 2.5rem
+  font-weight: 700;
+  line-height: 1.3;
+  color: #000000;
+  margin: 0;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+
+  @media (max-width: 768px) {
+    font-size: 1.875rem; // 1.5rem + 25% = 1.875rem
+  }
+
+  @media (max-width: 480px) {
+    font-size: 1.5625rem; // 1.25rem + 25% = 1.5625rem
+  }
+}

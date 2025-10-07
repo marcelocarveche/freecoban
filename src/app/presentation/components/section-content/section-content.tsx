@@ -5,18 +5,28 @@ import styles from './section-content.module.scss'
 interface SectionContentProps {
   title: string
   description: string
+  listItems?: string[]
   imageSrc: string
   imageAlt?: string
   imagePosition?: 'left' | 'right'
+  imageObjectFit?: 'cover' | 'contain'
+  imageScale?: string // Exemplo: "100%", "150%", "200%"
+  imagePositionX?: string // Exemplo: "0%", "50%", "-20%", "0px", "50px", "-20px"
+  imagePositionY?: string // Exemplo: "0%", "30%", "-10%", "0px", "30px", "-10px"
   className?: string
 }
 
 const SectionContent = ({
   title,
   description,
+  listItems,
   imageSrc,
   imageAlt = '',
   imagePosition = 'right',
+  imageObjectFit = 'cover',
+  imageScale = '100%',
+  imagePositionX = '0%',
+  imagePositionY = '0%',
   className = '',
 }: SectionContentProps) => {
   const [isPopupOpen, setIsPopupOpen] = useState(false)
@@ -39,6 +49,15 @@ const SectionContent = ({
         <div className={styles.textContent}>
           <h2 className={styles.title}>{title}</h2>
           <p className={styles.description}>{description}</p>
+          {listItems && listItems.length > 0 && (
+            <ul className={styles.list}>
+              {listItems.map((item, index) => (
+                <li key={index} className={styles.listItem}>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          )}
         </div>
 
         <div className={styles.imageContent}>
@@ -46,6 +65,10 @@ const SectionContent = ({
             src={imageSrc}
             alt={imageAlt}
             className={styles.image}
+            style={{
+              objectFit: imageObjectFit,
+              transform: `scale(${parseFloat(imageScale) / 100}) translate(${imagePositionX}, ${imagePositionY})`,
+            }}
             onClick={handleImageClick}
             role="button"
             tabIndex={0}

@@ -6,32 +6,75 @@ import {
   WhatsAppButton,
   InstagramButton,
   ContactSection,
+  QuoteSection,
+  BrandSection,
 } from '../../components'
 import styles from './home.module.scss'
-import { freecobanTrailer } from '../../assets'
+import {
+  freecobanTrailer,
+  freecobanTrailer2,
+  freecobanTrailer3,
+  freecoTrailer,
+  banheiroQuimico,
+} from '../../assets'
 
 const HomePage = () => {
   return (
     <div className={styles.container}>
-      {/* Seção Sobre - Exemplo com imagem à direita */}
-      <Section id="sobre" className={styles.section}>
+      {/* Primeira Seção - O detalhe que pode mudar seu evento */}
+      <Section id="recursos" className={styles.section}>
         <SectionContent
-          title="Sobre o FreeCOBAN"
-          description="O FreeCOBAN é uma plataforma inovadora que oferece soluções modernas e eficientes. Nossa missão é proporcionar a melhor experiência aos nossos usuários através de tecnologia de ponta."
-          imageSrc={freecobanTrailer}
-          imageAlt="Imagem sobre o FreeCOBAN"
-          imagePosition="right"
+          title="O detalhe que pode mudar seu evento"
+          description="Os banheiros são um ponto chave na experiência de um convidado."
+          listItems={[
+            'Filas, mau cheiro, desconforto.',
+            'Banheiros químicos comuns são um pesadelo.',
+            'Isso afeta a experiência do público e a percepção da marca.',
+          ]}
+          imageSrc={banheiroQuimico}
+          imageAlt="Banheiro químico tradicional"
+          imagePosition="left"
         />
       </Section>
 
-      {/* Seção Recursos - Exemplo com imagem à esquerda */}
-      <Section id="recursos" className={styles.section}>
+      {/* Segunda Seção - Citação */}
+      <QuoteSection quote="E se até o banheiro fosse parte positiva da experiência?" />
+
+      {/* Terceira Seção - Conforto e alto padrão */}
+      <Section id="solucao" className={styles.section}>
         <SectionContent
-          title="Recursos Poderosos"
-          description="Descubra todas as funcionalidades que temos a oferecer. Nossa plataforma foi desenvolvida pensando na sua necessidade de eficiência e praticidade."
-          imageSrc="https://picsum.photos/500/400"
-          imageAlt="Recursos da plataforma"
+          title=""
+          description=""
+          listItems={[
+            'Conforto, estética e eficiência no que antes era um problema.',
+            'Eventos de alto nível merecem soluções de alto padrão.',
+          ]}
+          imageSrc={freecobanTrailer2}
+          imageAlt="FreeCOBAN - Solução de alto padrão"
+          imagePosition="right"
+          imageObjectFit="cover"
+        />
+      </Section>
+
+      {/* Quarta Seção - Brand Section com Logo e Slogan */}
+      <BrandSection backgroundImage={freecobanTrailer} />
+
+      {/* Quinta Seção - Sobre o FreeCOBAN */}
+      <Section id="sobre" className={styles.section}>
+        <SectionContent
+          title=""
+          description=""
+          listItems={[
+            'Fusão entre TrailerBan + Freeco.',
+            'Parte do ecossistema Freebrands.',
+            'Especialistas em soluções sanitárias móveis para eventos premium há mais de 10 anos.',
+          ]}
+          imageSrc={freecoTrailer}
+          imageAlt="FreeCOBAN - Ecossistema Freebrands"
           imagePosition="left"
+          imageScale="100%" // Aumenta o zoom em 50%
+          imagePositionX="0%" // Move 10% para a direita (em relação à largura)
+          imagePositionY="0%" // Move 5% para cima (em relação à altura)
         />
       </Section>
 

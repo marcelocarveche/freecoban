@@ -1,0 +1,91 @@
+@use '@/app/presentation/styles/colors.module.scss' as *;
+
+.container {
+  width: 100%;
+  min-height: 600px;
+  height: 70vh;
+  position: relative;
+  overflow: hidden; // Importante para o efeito parallax
+  display: flex;
+  align-items: center; // Centraliza verticalmente
+  justify-content: flex-end; // Alinha à direita
+  padding-right: 5%;
+
+  // Mobile: formato quadrado 1:1
+  @media (max-width: 1000px) {
+    height: 0;
+    padding-bottom: 100%; // Cria aspect ratio 1:1
+    min-height: unset;
+    align-items: flex-end;
+    padding-right: 0;
+  }
+}
+
+.backgroundImage {
+  position: absolute;
+  top: -50px; // Margem extra para o movimento parallax
+  left: 0;
+  width: 100%;
+  height: calc(100% + 100px); // Altura extra para o movimento parallax
+  background-size: cover;
+  background-position: center 60%; // Posiciona 40% do topo
+  background-repeat: no-repeat;
+  will-change: transform; // Otimização de performance
+  z-index: 0;
+
+  // Mobile: sem parallax, posição centralizada
+  @media (max-width: 1000px) {
+    top: 0;
+    height: 100%;
+    background-position: center center; // Centro da imagem
+  }
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2rem;
+  z-index: 1;
+  position: relative; // Garante que o conteúdo fique acima da imagem
+
+  @media (max-width: 1000px) {
+    padding: 3rem;
+    gap: 1.5rem;
+  }
+}
+
+.logo {
+  width: 300px;
+  height: auto;
+  filter: brightness(0) invert(1); // Torna o logo branco
+
+  @media (max-width: 1000px) {
+    width: 150px;
+  }
+
+  @media (min-width: 1001px) and (max-width: 1400px) {
+    width: 250px;
+  }
+}
+
+.slogan {
+  color: white;
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-align: right;
+  line-height: 1.1;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  white-space: pre-line;
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.7);
+  max-width: 500px;
+
+  @media (max-width: 1000px) {
+    font-size: 1.5rem;
+  }
+
+  @media (max-width: 600px) {
+    font-size: 1.2rem;
+  }
+}
