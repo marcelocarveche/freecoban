@@ -16,6 +16,17 @@ interface SectionContentProps {
   className?: string
 }
 
+// Função para processar texto com negrito em Markdown (**texto**)
+const processMarkdown = (text: string) => {
+  const parts = text.split(/(\*\*.*?\*\*)/)
+  return parts.map((part, index) => {
+    if (part.startsWith('**') && part.endsWith('**')) {
+      return <strong key={index}>{part.slice(2, -2)}</strong>
+    }
+    return part
+  })
+}
+
 const SectionContent = ({
   title,
   description,
@@ -48,7 +59,7 @@ const SectionContent = ({
       >
         <div className={styles.textContent}>
           <h2 className={styles.title}>{title}</h2>
-          <p className={styles.description}>{description}</p>
+          <p className={styles.description}>{processMarkdown(description)}</p>
           {listItems && listItems.length > 0 && (
             <ul className={styles.list}>
               {listItems.map((item, index) => (

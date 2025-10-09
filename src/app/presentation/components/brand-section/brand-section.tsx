@@ -2,7 +2,7 @@ import { useRef } from 'react'
 import styles from './brand-section.module.scss'
 import { useParallax } from '@/app/presentation/hooks/use-parallax'
 import { useIsMobile } from '@/app/presentation/hooks/use-is-mobile'
-import logo from '../../assets/logo.png'
+import logo from '../../assets/logo.svg'
 
 interface BrandSectionProps {
   backgroundImage: string

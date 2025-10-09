@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import styles from './header.module.scss'
-import logo from '../../assets/logo.png'
+import logo from '../../assets/logo.svg'
 
 type Props = {} & React.HTMLAttributes<HTMLDivElement>
 

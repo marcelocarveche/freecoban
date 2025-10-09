@@ -33,6 +33,23 @@
   will-change: transform; // Otimização de performance
   z-index: 0;
 
+  // Overlay escuro para melhorar legibilidade
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+      135deg,
+      rgba(0, 0, 0, 0.5) 0%,
+      rgba(0, 0, 0, 0.3) 50%,
+      rgba(0, 0, 0, 0.6) 100%
+    );
+    z-index: 1;
+  }
+
   // Mobile: sem parallax, posição centralizada
   @media (max-width: 1000px) {
     top: 0;
@@ -44,9 +61,9 @@
 .content {
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
+  align-items: center;
   gap: 2rem;
-  z-index: 1;
+  z-index: 2; // Acima do overlay
   position: relative; // Garante que o conteúdo fique acima da imagem
 
   @media (max-width: 1000px) {
@@ -58,7 +75,7 @@
 .logo {
   width: 300px;
   height: auto;
-  filter: brightness(0) invert(1); // Torna o logo branco
+  filter: brightness(0) invert(1) drop-shadow(0 4px 12px rgba(0, 0, 0, 0.8)); // Torna o logo branco com sombra forte
 
   @media (max-width: 1000px) {
     width: 150px;
@@ -73,12 +90,15 @@
   color: white;
   font-size: 2.5rem;
   font-weight: bold;
-  text-align: right;
+  text-align: center;
   line-height: 1.1;
   letter-spacing: 0.02em;
   text-transform: uppercase;
   white-space: pre-line;
-  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.7);
+  text-shadow:
+    0 2px 4px rgba(0, 0, 0, 0.8),
+    0 4px 8px rgba(0, 0, 0, 0.6),
+    0 8px 16px rgba(0, 0, 0, 0.4);
   max-width: 500px;
 
   @media (max-width: 1000px) {
