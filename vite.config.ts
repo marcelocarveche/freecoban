@@ -5,7 +5,7 @@ import path from 'path'
 // Use /freecoban/ for GitHub Pages, or / for custom domain
 export default defineConfig({
   plugins: [react()],
-  base: '/',
+  base: '/freecoban/',
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
