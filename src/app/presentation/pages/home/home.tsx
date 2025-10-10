@@ -107,7 +107,10 @@ const HomePage = () => {
       </Section>
 
       {/* Oitava Seção - Banheiros Modulares VIP */}
-      <Section id="modulares-vip" className={styles.section}>
+      <Section
+        id="modulares-vip"
+        className={`${styles.section} ${styles.sectionModularesVip}`}
+      >
         <SectionContent
           title="Banheiros Modulares VIP"
           description="**Versatilidade para eventos de grande porte**"
