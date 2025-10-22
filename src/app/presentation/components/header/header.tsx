@@ -44,11 +44,11 @@ export const Header: React.FC<Props> = ({ ...props }) => {
         {/* Navegação Desktop */}
         <nav className={styles.navigation}>
           <a
-            href="#sobre"
+            href="#quem-somos"
             className={styles.navLink}
-            onClick={(e) => handleLinkClick(e, 'sobre')}
+            onClick={(e) => handleLinkClick(e, 'quem-somos')}
           >
-            Sobre
+            Quem somos
           </a>
           <a
             href="#contato"
@@ -99,11 +99,11 @@ export const Header: React.FC<Props> = ({ ...props }) => {
             className={`${styles.mobileNavigation} ${isMobileMenuOpen ? styles.isOpen : ''}`}
           >
             <a
-              href="#sobre"
+              href="#quem-somos"
               className={styles.navLink}
-              onClick={(e) => handleLinkClick(e, 'sobre')}
+              onClick={(e) => handleLinkClick(e, 'quem-somos')}
             >
-              Sobre
+              Quem somos
             </a>
             <a
               href="#contato"

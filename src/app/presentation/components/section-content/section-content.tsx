@@ -1,12 +1,13 @@
 import { useState } from 'react'
 import ImagePopup from '../image-popup/image-popup'
+import ImageCarousel from '../image-carousel/image-carousel'
 import styles from './section-content.module.scss'
 
 interface SectionContentProps {
   title: string
   description: string
   listItems?: string[]
-  imageSrc: string
+  imageSrc?: string
   imageAlt?: string
   imagePosition?: 'left' | 'right'
   imageObjectFit?: 'cover' | 'contain'
@@ -14,6 +15,10 @@ interface SectionContentProps {
   imagePositionX?: string // Exemplo: "0%", "50%", "-20%", "0px", "50px", "-20px"
   imagePositionY?: string // Exemplo: "0%", "30%", "-10%", "0px", "30px", "-10px"
   className?: string
+  // Propriedades para carrossel
+  carouselImages?: string[]
+  carouselAlts?: string[]
+  carouselInterval?: number
 }
 
 // Função para processar texto com negrito em Markdown (**texto**)
@@ -39,6 +44,9 @@ const SectionContent = ({
   imagePositionX = '0%',
   imagePositionY = '0%',
   className = '',
+  carouselImages,
+  carouselAlts,
+  carouselInterval = 5000,
 }: SectionContentProps) => {
   const [isPopupOpen, setIsPopupOpen] = useState(false)
 
@@ -49,6 +57,9 @@ const SectionContent = ({
   const handleClosePopup = () => {
     setIsPopupOpen(false)
   }
+
+  // Determinar se deve usar carrossel ou imagem única
+  const useCarousel = carouselImages && carouselImages.length > 0
 
   return (
     <>
@@ -72,33 +83,49 @@ const SectionContent = ({
         </div>
 
         <div className={styles.imageContent}>
-          <img
-            src={imageSrc}
-            alt={imageAlt}
-            className={styles.image}
-            style={{
-              objectFit: imageObjectFit,
-              transform: `scale(${parseFloat(imageScale) / 100}) translate(${imagePositionX}, ${imagePositionY})`,
-            }}
-            onClick={handleImageClick}
-            role="button"
-            tabIndex={0}
-            onKeyDown={(e) => {
-              if (e.key === 'Enter' || e.key === ' ') {
-                e.preventDefault()
-                handleImageClick()
-              }
-            }}
-          />
+          {useCarousel ? (
+            <ImageCarousel
+              images={carouselImages}
+              imageAlts={carouselAlts}
+              interval={carouselInterval}
+              imageObjectFit={imageObjectFit}
+              imageScale={imageScale}
+              imagePositionX={imagePositionX}
+              imagePositionY={imagePositionY}
+            />
+          ) : (
+            imageSrc && (
+              <img
+                src={imageSrc}
+                alt={imageAlt}
+                className={styles.image}
+                style={{
+                  objectFit: imageObjectFit,
+                  transform: `scale(${parseFloat(imageScale) / 100}) translate(${imagePositionX}, ${imagePositionY})`,
+                }}
+                onClick={handleImageClick}
+                role="button"
+                tabIndex={0}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault()
+                    handleImageClick()
+                  }
+                }}
+              />
+            )
+          )}
         </div>
       </div>
 
-      <ImagePopup
-        imageSrc={imageSrc}
-        imageAlt={imageAlt}
-        isOpen={isPopupOpen}
-        onClose={handleClosePopup}
-      />
+      {!useCarousel && imageSrc && (
+        <ImagePopup
+          imageSrc={imageSrc}
+          imageAlt={imageAlt}
+          isOpen={isPopupOpen}
+          onClose={handleClosePopup}
+        />
+      )}
     </>
   )
 }

@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useState, useCallback } from 'react'
 import styles from './image-popup.module.scss'
 
 interface ImagePopupProps {
@@ -14,66 +14,68 @@ const ImagePopup = ({
   isOpen,
   onClose,
 }: ImagePopupProps) => {
-  // Previne scroll do body quando o popup está aberto
+  const [isVisible, setIsVisible] = useState(false)
+
+  // Função de fechamento com fade-out
+  const handleClose = useCallback(() => {
+    setIsVisible(false)
+    // Aguarda a animação de fade-out antes de chamar onClose
+    setTimeout(() => {
+      onClose()
+    }, 300) // Duração da animação fadeOut
+  }, [onClose])
+
+  // Gerencia a abertura com fade
   useEffect(() => {
     if (isOpen) {
-      // Salva a posição atual do scroll
-      const scrollY = window.scrollY
-
-      // Desativa scroll em X e Y
-      document.body.style.overflow = 'hidden'
-      document.body.style.position = 'fixed'
-      document.body.style.top = `-${scrollY}px`
-      document.body.style.width = '100%'
-    } else {
-      // Restaura o scroll
-      const scrollY = document.body.style.top
-      document.body.style.overflow = ''
-      document.body.style.position = ''
-      document.body.style.top = ''
-      document.body.style.width = ''
-      window.scrollTo(0, parseInt(scrollY || '0') * -1)
-    }
-
-    return () => {
-      document.body.style.overflow = ''
-      document.body.style.position = ''
-      document.body.style.top = ''
-      document.body.style.width = ''
+      setIsVisible(true)
     }
   }, [isOpen])
 
-  // Fecha ao pressionar ESC
+  // Previne scroll do body quando o popup está aberto
+  useEffect(() => {
+    if (isVisible) {
+      // Apenas bloqueia o scroll, sem mudar position
+      document.body.style.overflow = 'hidden'
+      document.body.style.paddingRight = `${window.innerWidth - document.documentElement.clientWidth}px`
+    } else {
+      // Restaura overflow
+      document.body.style.overflow = ''
+      document.body.style.paddingRight = ''
+    }
+  }, [isVisible])
+
+  // Fecha ao pressionar ESC (sempre registrado, mas só age se isOpen)
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') {
-        onClose()
+      if (e.key === 'Escape' && isOpen) {
+        handleClose()
       }
     }
 
-    if (isOpen) {
-      window.addEventListener('keydown', handleEscape)
-    }
-
+    window.addEventListener('keydown', handleEscape)
     return () => {
       window.removeEventListener('keydown', handleEscape)
     }
-  }, [isOpen, onClose])
+  }, [isOpen, handleClose])
 
   if (!isOpen) return null
 
   const handleOverlayClick = (e: React.MouseEvent<HTMLDivElement>) => {
     // Só fecha se clicar diretamente no overlay (não em elementos filhos)
     if (e.target === e.currentTarget) {
-      onClose()
+      handleClose()
     }
   }
 
   return (
-    <div className={styles.overlay} onClick={handleOverlayClick}>
+    <div
+      className={`${styles.overlay} ${isVisible ? styles.visible : styles.hidden}`}
+      onClick={handleOverlayClick}
+    >
       <button
         className={styles.closeButton}
-        onClick={onClose}
+        onClick={handleClose}
         aria-label="Fechar"
       >
         <svg

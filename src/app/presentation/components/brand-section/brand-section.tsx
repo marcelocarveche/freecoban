@@ -9,6 +9,7 @@ interface BrandSectionProps {
   logoSrc?: string
   slogan?: string
   parallaxSpeed?: number
+  id?: string
 }
 
 const BrandSection = ({
@@ -16,6 +17,7 @@ const BrandSection = ({
   logoSrc = logo,
   slogan = 'O NOVO PADRÃO\nEM BANHEIROS VIP',
   parallaxSpeed = 0.375,
+  id,
 }: BrandSectionProps) => {
   const sectionRef = useRef<HTMLElement>(null)
   const isMobile = useIsMobile()
@@ -26,7 +28,7 @@ const BrandSection = ({
   console.log('BrandSection parallaxOffset:', parallaxOffset)
 
   return (
-    <section ref={sectionRef} className={styles.container}>
+    <section ref={sectionRef} className={styles.container} id={id}>
       <div
         className={styles.backgroundImage}
         style={{

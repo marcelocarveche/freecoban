@@ -1,0 +1,82 @@
+@import '../../styles/colors.module.scss';
+
+// ============================================================================
+// COMPONENTE IMAGE CAROUSEL - CARROSSEL DE IMAGENS AUTOMÁTICO
+// ============================================================================
+
+.carouselContainer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 1rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+// ============================================================================
+// WRAPPER DAS IMAGENS
+// ============================================================================
+
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 400px;
+  cursor: pointer;
+
+  @media (max-width: 768px) {
+    min-height: 300px;
+  }
+}
+
+// ============================================================================
+// IMAGENS DO CARROSSEL
+// ============================================================================
+
+.image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  pointer-events: none;
+
+  &.active {
+    opacity: 1;
+    z-index: 1;
+  }
+}
+
+// ============================================================================
+// INDICADORES (DOTS)
+// ============================================================================
+
+.indicators {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 0.75rem;
+  z-index: 2;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.5);
+  border: 2px solid rgba(255, 255, 255, 0.8);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0;
+
+  &.activeDot {
+    background-color: $emerald-600;
+    border-color: $emerald-600;
+    transform: scale(1.3);
+  }
+}

@@ -16,7 +16,9 @@ import {
   freecobanTrailer,
   freecobanTrailer2,
   freecobanTrailer3,
+  freecobanTrailerInterno,
   freecoTrailer,
+  freecoTrailerEvento,
   banheiroQuimico,
   trailerVipExterior,
   banheirosModularesVip,
@@ -35,8 +37,17 @@ const HomePage = () => {
             'Banheiros químicos comuns são um pesadelo.',
             'Isso afeta a experiência do público e a percepção da marca.',
           ]}
-          imageSrc={banheiroQuimico}
-          imageAlt="Banheiro químico tradicional"
+          carouselImages={[
+            freecobanTrailer2,
+            freecoTrailer,
+            freecobanTrailerInterno,
+          ]}
+          carouselAlts={[
+            'FreeCoBan Trailer 2',
+            'Freeco Trailer',
+            'FreeCoBan Trailer Interno',
+          ]}
+          carouselInterval={5000}
           imagePosition="left"
         />
       </Section>
@@ -61,7 +72,7 @@ const HomePage = () => {
       </Section>
 
       {/* Quarta Seção - Brand Section com Logo e Slogan */}
-      <BrandSection backgroundImage={freecobanTrailer} />
+      <BrandSection backgroundImage={freecobanTrailer} id="quem-somos" />
 
       {/* Quinta Seção - Sobre o FreeCOBAN */}
       <Section id="sobre" className={styles.section}>
@@ -88,7 +99,7 @@ const HomePage = () => {
       {/* Sétima Seção - Trailers Banheiro VIP */}
       <Section id="trailers-vip" className={styles.section}>
         <SectionContent
-          title="Trailers Banheiro VIP"
+          title="A) Trailers Banheiro VIP"
           description="**Mobilidade, sofisticação e autonomia**"
           listItems={[
             'Modelos com 2 a 4 cabines',
@@ -112,7 +123,7 @@ const HomePage = () => {
         className={`${styles.section} ${styles.sectionModularesVip}`}
       >
         <SectionContent
-          title="Banheiros Modulares VIP"
+          title="B) Banheiros Modulares VIP"
           description="**Versatilidade para eventos de grande porte**"
           listItems={[
             'Módulos com acabamento VIP',
@@ -127,7 +138,26 @@ const HomePage = () => {
         />
       </Section>
 
-      {/* Nona Seção - Benefícios e Diferenciais */}
+      {/* Nona Seção - Ativações de Marca em Locais Públicos */}
+      <Section id="ativacoes-marca" className={styles.section}>
+        <SectionContent
+          title="C) Ativações de Marca em Locais Públicos"
+          description="**Transforme banheiros VIP em plataforma de marketing**"
+          listItems={[
+            'Exposição de alto impacto em locais muito visitados',
+            'Associação à uma experiência premium e sustentável oferecida pela FreeCoBan',
+            'Conteúdo audiovisual exclusivo para campanhas digitais e redes sociais',
+            'Visibilidade contínua e orgânica, alcançando um público diversificado e qualificado',
+            'Ativação de marca com baixo custo e alto retorno de imagem',
+          ]}
+          imageSrc={freecoTrailerEvento}
+          imageAlt="Ativações de Marca - Trailer no Bloco de Carnaval"
+          imagePosition="left"
+          imageObjectFit="cover"
+        />
+      </Section>
+
+      {/* Décima Seção - Benefícios e Diferenciais */}
       <BenefitsSection />
 
       {/* Décima Seção - Galeria de Imagens */}
