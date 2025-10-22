@@ -58,7 +58,7 @@
   text-decoration: none;
   font-family: 'Inter', sans-serif;
   font-weight: 500;
-  font-size: 1.25rem;
+  font-size: 0.9375rem;
   padding: 0.5rem 1rem;
   border-radius: 6px;
   transition: all 0.2s ease;
@@ -75,7 +75,7 @@
   }
 
   @media (max-width: 768px) {
-    font-size: 1.125rem;
+    font-size: 0.84375rem;
     padding: 0.4rem 0.75rem;
   }
 }

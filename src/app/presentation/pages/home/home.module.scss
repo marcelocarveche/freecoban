@@ -43,30 +43,30 @@
 }
 
 .sectionTitle {
-  font-size: 3.125rem;
+  font-size: 2.34375rem;
   font-weight: 600;
   color: $primary;
   margin-bottom: 1.5rem;
   font-family: 'Exo 2', sans-serif;
 
   @media (max-width: 768px) {
-    font-size: 2.5rem;
+    font-size: 1.875rem;
   }
 
   @media (max-width: 480px) {
-    font-size: 2.1875rem;
+    font-size: 1.640625rem;
   }
 }
 
 .sectionText {
-  font-size: 1.375rem;
+  font-size: 1.03125rem;
   color: $text-secondary;
   line-height: 1.7;
   margin-bottom: 2rem;
   font-family: 'Inter', sans-serif;
 
   @media (max-width: 768px) {
-    font-size: 1.25rem;
+    font-size: 0.9375rem;
   }
 }
 
@@ -77,7 +77,7 @@
   align-items: center;
 
   p {
-    font-size: 1.375rem;
+    font-size: 1.03125rem;
     color: $text-primary;
     font-family: 'Inter', sans-serif;
     font-weight: 500;
