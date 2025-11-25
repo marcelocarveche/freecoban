@@ -20,7 +20,7 @@
   "bugs": {
     "url": "https://github.com/marcelocarveche/freecoban/issues"
   },
-  "homepage": "https://freecoban.marcelocarveche.com.br",
+  "homepage": "https://marcelocarveche.com.br",
   "description": "FreeCOBAN - Soluções sanitárias móveis para eventos premium",
   "dependencies": {
     "react": "^19.1.0",
