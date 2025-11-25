@@ -165,9 +165,9 @@ const HomePage = () => {
 
       {/* Seção de Contato - Sempre a última */}
       <ContactSection
-        email="contato@freecoban.com"
-        phone="+55 11 99999-9999"
-        whatsapp="5511999999999"
+        email="comercial@freecoban.com.br"
+        phone="+55 (21) 99883-9272"
+        whatsapp="5521998839272"
         instagram="freecoban"
       />
 

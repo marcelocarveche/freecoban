@@ -10,9 +10,9 @@ interface ContactSectionProps {
 }
 
 const ContactSection = ({
-  email = 'contato@freecoban.com',
-  phone = '+55 11 99999-9999',
-  whatsapp = '5511999999999',
+  email = 'comercial@freecoban.com.br',
+  phone = '5521998839272',
+  whatsapp = '5521998839272',
   instagram = 'freecoban',
   facebook,
   linkedin,
